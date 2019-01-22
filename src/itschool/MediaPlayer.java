@@ -1,15 +1,16 @@
 package itschool;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.advanced.AdvancedPlayer;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.*;
 
 public class MediaPlayer {
     enum CurrentState {playing, stopped, paused};
     enum RepeatMode {repeatAll, repeatOneSong, NoRepeat};
 
-	public CurrentState currentState;
+	CurrentState currentState;
 	RepeatMode repeatMode;
 	AdvancedPlayer zoomPlayer;
 	
@@ -42,7 +43,6 @@ public class MediaPlayer {
 		this.currentState = currentState;
 		if (currentState != CurrentState.stopped)
 			this.play();
-		
 	}
 	
 	public void play() throws JavaLayerException, FileNotFoundException
